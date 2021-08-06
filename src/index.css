@@ -23,7 +23,7 @@
 	--font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 	/* transition */
-	--transition: 0.2s ease-in-out;
+	--transition: 0.4s ease-in-out;
 }
 
 /* Global */
@@ -176,7 +176,8 @@ body {
 }
 
 .input-group input:focus {
-	border-color: var(--dark-color);
+	border-color: var(--blue-color);
+	box-shadow: inset 0 0 0 1px var(--blue-color);
 	outline: none;
 }
 
@@ -233,27 +234,52 @@ body {
 }
 
 .link {
+	position: relative;
 	font: inherit;
 	font-weight: 600;
 	text-decoration: none;
 	color: var(--red-color);
-	border-bottom: 1px solid transparent;
-	transition: border-color var(--transition);
 	cursor: pointer;
+}
+
+.link::before,
+.link::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	width: 100%;
+	height: 0.063rem;
+	background-color: var(--red-color);
+	transform: scaleX(0);
+	transition: transform var(--transition);
+}
+
+.link::before {
+	top: 0;
+	transform-origin: right;
+}
+
+.link::after {
+	bottom: 0;
+	transform-origin: left;
 }
 
 .link--dark {
 	color: var(--blue-color);
 }
 
-.link:hover,
-.link:focus {
-	border-color: var(--red-color);
+.link--dark::before,
+.link--dark::after {
+	background-color: var(--blue-color);
 }
 
-.link--dark:hover,
-.link--dark:focus {
-	border-color: var(--blue-color);
+.link:hover::before,
+.link:focus::before,
+.link:hover::after,
+.link:focus::after {
+	transform: scaleX(1);
 }
 
 .go-back {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Page from './Page';
+import Footer from './Footer';
 
 function Terms() {
 	return (
@@ -33,6 +34,7 @@ function Terms() {
 					</p>
 				</section>
 			</div>
+			<Footer />
 		</Page>
 	);
 }
