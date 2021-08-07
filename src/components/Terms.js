@@ -10,7 +10,7 @@ function Terms() {
 				<Link to='/' className='link link--dark go-back'>
 					Back
 				</Link>
-				<section className='block'>
+				<section className='column'>
 					<h2 className='title'>Terms and Services</h2>
 					<p className='text'>
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit nam, minima magni

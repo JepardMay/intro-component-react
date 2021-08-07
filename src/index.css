@@ -97,11 +97,11 @@ body {
 }
 
 .header,
-.block {
+.column {
 	width: calc(50% - 14px);
 }
 
-.block:only-of-type {
+.column:only-of-type {
 	margin: auto;
 }
 
@@ -135,12 +135,17 @@ body {
 	box-shadow: 0 0.5rem 0 0 var(--shadow);
 }
 
-.form-block {
+.block {
 	padding: 2.4rem 2.6rem;
 	color: var(--grayish-color);
 	background-color: var(--white-color);
 	border-radius: 0.6rem;
 	box-shadow: 0 0.5rem 0 0 var(--shadow);
+}
+
+.block--centered {
+	text-align: center;
+	vertical-align: middle;
 }
 
 .form-list {
@@ -301,6 +306,10 @@ body {
 	line-height: 2rem;
 }
 
+.title--dark {
+	color: var(--dark-color);
+}
+
 .title + .title {
 	margin-top: 2rem;
 }
@@ -311,6 +320,10 @@ body {
 
 .text + .text {
 	margin-top: 1.5rem;
+}
+
+.text:last-of-type {
+	margin-bottom: 1.25rem;
 }
 
 .go-back:hover,
@@ -341,7 +354,7 @@ body {
 	}
 
 	.header,
-	.block {
+	.column {
 		width: 100%;
 	}
 
@@ -365,7 +378,7 @@ body {
 		vertical-align: middle;
 	}
 
-	.form-block {
+	.block {
 		padding: 1.5rem 1.6rem;
 	}
 
