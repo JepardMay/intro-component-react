@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Input from './Input';
 import Button from './Button';
 import Confetti from 'react-confetti';
+import { auth } from '../firebase';
 
 function Form({ initialValues, validate }) {
 	const inputs = [
@@ -13,6 +14,8 @@ function Form({ initialValues, validate }) {
 	];
 
 	const [subscription, setSubscription] = React.useState(false);
+
+	const [loading, setLoading] = React.useState(false);
 
 	const [values, setValues] = React.useState(initialValues);
 
@@ -84,14 +87,48 @@ function Form({ initialValues, validate }) {
 			Object.keys(formValidation.errors).length === 0 &&
 			Object.values(formValidation.touched).every(value => value)
 		) {
-			setSubscription(true);
-			setValues(initialValues);
+			setLoading(true);
+			auth
+				.createUserWithEmailAndPassword(values.email, values.password)
+				.then(user => {
+					setTimeout(() => {
+						setLoading(false);
+						setSubscription(true);
+					}, 2000);
+				})
+				.catch(err => console.log(err));
 		}
 	};
 
 	return (
 		<section className='column'>
-			{!subscription ? (
+			{loading ? (
+				<div className='block block--centered'>
+					<div className='lds-dual-ring'></div>
+				</div>
+			) : subscription ? (
+				<>
+					<div className='block block--centered'>
+						<Confetti
+							width={window.innerWidth}
+							height={window.innerHeight}
+							numberOfPieces='40'
+							run='false'
+						/>
+						<h2 className='title title--dark'>
+							Congrats, {values.firstName} {values.lastName}!
+						</h2>
+						<p className='text text--dark'>You're all set up</p>
+						<Button
+							text='Go back to form'
+							handleClick={() => {
+								setSubscription(false);
+								setValues(initialValues);
+							}}
+						/>
+					</div>
+				</>
+			) : (
 				<>
 					<h2 className='visually-hidden'>Subscribe for trial</h2>
 					<p className='promo'>
@@ -124,20 +161,6 @@ function Form({ initialValues, validate }) {
 								Terms and Services
 							</Link>
 						</p>
-					</div>
-				</>
-			) : (
-				<>
-					<div className='block block--centered'>
-						<Confetti
-							width={window.innerWidth}
-							height={window.innerHeight}
-							numberOfPieces='40'
-							run='false'
-						/>
-						<h2 className='title title--dark'>Congrats!</h2>
-						<p className='text text--dark'>You're all set up</p>
-						<Button text='Go back to form' handleClick={() => setSubscription(false)} />
 					</div>
 				</>
 			)}
