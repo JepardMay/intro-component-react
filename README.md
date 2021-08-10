@@ -34,7 +34,9 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Intro-component-react](https://intro-component-react.firebaseapp.com/)
+- Live Site URL: 
+  - [Intro-component-react](https://intro-component-react.firebaseapp.com/)
+  - [Netlify](https://friendly-saha-725099.netlify.app/)
 
 ## My process
 
