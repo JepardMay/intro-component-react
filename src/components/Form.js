@@ -96,11 +96,9 @@ function Form({ initialValues, validate }) {
 			setLoading(true);
 			auth
 				.createUserWithEmailAndPassword(values.email, values.password)
-				.then(user => {
-					setTimeout(() => {
-						setLoading(false);
-						setSubscription(true);
-					}, 2000);
+				.then(() => {
+					setLoading(false);
+					setSubscription(true);
 				})
 				.catch(err => {
 					console.log(err);

@@ -79,7 +79,7 @@ body {
 	max-width: var(--max-width);
 	min-height: 100vh;
 	margin: 0 auto;
-	padding: 0 24px;
+	padding: 1rem 24px;
 }
 
 .container {
@@ -234,6 +234,7 @@ body {
 
 .error-msg {
 	display: block;
+	margin: 1rem 0;
 	font-size: 0.7rem;
 	color: var(--red-color);
 }
