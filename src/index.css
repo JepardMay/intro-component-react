@@ -181,6 +181,7 @@ body {
 .input-group input::placeholder {
 	font: inherit;
 	color: var(--dark-transparent-color);
+	opacity: 1;
 }
 
 .input-group input:focus {
