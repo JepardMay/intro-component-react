@@ -220,6 +220,10 @@ body {
 	box-shadow: inset 0px 2px 2px 2px var(--shadow);
 }
 
+.error-block {
+	margin-bottom: 1.25rem;
+}
+
 .error-icon {
 	position: absolute;
 	top: 1rem;
@@ -232,6 +236,12 @@ body {
 	display: block;
 	font-size: 0.7rem;
 	color: var(--red-color);
+}
+
+.error-block .error-msg {
+	margin-top: 0;
+	font-size: 0.9rem;
+	font-weight: 700;
 }
 
 .terms {

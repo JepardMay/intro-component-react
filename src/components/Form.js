@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Input from './Input';
-import Button from './Button';
 import Confetti from 'react-confetti';
 import { auth } from '../firebase';
+
+import Input from './Input';
+import Button from './Button';
+import Message from './Message';
 
 function Form({ initialValues, validate }) {
 	const inputs = [
@@ -23,6 +25,8 @@ function Form({ initialValues, validate }) {
 
 	const [touched, setTouched] = React.useState({});
 
+	const [message, setMessage] = React.useState('');
+
 	const handleChange = evt => {
 		const { name, value } = evt.target;
 
@@ -40,6 +44,8 @@ function Form({ initialValues, validate }) {
 	};
 
 	const handleBlur = evt => {
+		setMessage('');
+
 		const { name, value } = evt.target;
 
 		// remove whatever error was there previously
@@ -96,7 +102,11 @@ function Form({ initialValues, validate }) {
 						setSubscription(true);
 					}, 2000);
 				})
-				.catch(err => console.log(err));
+				.catch(err => {
+					console.log(err);
+					setMessage(err.message);
+					setLoading(false);
+				});
 		}
 	};
 
@@ -135,6 +145,7 @@ function Form({ initialValues, validate }) {
 						<b className='bold'>Try it free 7 days</b>&nbsp;then $20/mo. thereafter
 					</p>
 					<div className='block'>
+						{message !== '' && <Message message={message} />}
 						<form onSubmit={handleSubmit}>
 							<ul className='form-list'>
 								{inputs.map((input, i) => (
