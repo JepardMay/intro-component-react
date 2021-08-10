@@ -29,13 +29,12 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop view](./screenshot.jpg)
-![Mobiel view](./screenshot-mobile.jpg)
+![Desktop view](./screenshot.png) ![Mobiel view](./screenshot-mobile.png)
 
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Intro-component-react](https://intro-component-react.web.app)
+- Live Site URL: [Intro-component-react](https://intro-component-react.firebaseapp.com/)
 
 ## My process
 
