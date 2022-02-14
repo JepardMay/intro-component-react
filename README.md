@@ -29,11 +29,11 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop view](./screenshot.png) ![Mobiel view](./screenshot-mobile.png)
+![Desktop view](./screenshot.png) ![Mobile view](./screenshot-mobile.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/challenges/intro-component-with-signup-form-5cf91bd49edda32581d28fd1/hub/react-form-with-custom-validation-and-firebase-Uc6gKrxnl)
 - Live Site URL: 
   - [Intro-component-react](https://intro-component-react.firebaseapp.com/)
   - [Netlify](https://friendly-saha-725099.netlify.app/)
